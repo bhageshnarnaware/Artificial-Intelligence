@@ -1,0 +1,35 @@
+# AI IT Support Chatbot - Python Dependencies
+# ============================================
+# Install with: pip install -r requirements.txt
+
+# Web Framework
+Flask==2.3.3
+Flask-CORS==4.0.0
+Werkzeug==2.3.7
+
+# Database
+# SQLite3 is included in Python standard library (no installation needed)
+
+# NLP & Text Processing (Optional - for enhanced pattern matching)
+nltk==3.8.1
+
+# Dialogflow Integration (Optional - for Google Dialogflow support)
+# Uncomment the following line if using Dialogflow
+google-cloud-dialogflow==2.23.3
+
+# Environment Management
+python-dotenv==1.0.0
+
+# Production Server
+gunicorn==21.2.0
+
+# Development & Testing
+pytest==7.4.2
+pytest-flask==1.2.0
+
+# Code Quality
+flake8==6.1.0
+black==23.9.1
+
+# Utilities
+requests==2.31.0

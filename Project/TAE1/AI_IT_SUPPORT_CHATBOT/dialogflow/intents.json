@@ -1,0 +1,222 @@
+{
+  "intents": [
+    {
+      "displayName": "Default Welcome Intent",
+      "trainingPhrases": [
+        "Hello",
+        "Hi",
+        "Hey",
+        "Good morning",
+        "Good afternoon",
+        "Good evening",
+        "How are you",
+        "What's up",
+        "Greetings"
+      ],
+      "messages": [
+        "Hello! I'm your IT Support Assistant. How can I help you today?",
+        "Hi there! I'm here to help with your IT issues. What can I assist you with?",
+        "Welcome! I'm your IT Support Bot. Please describe your technical issue."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Internet Not Working",
+      "trainingPhrases": [
+        "My internet is not working",
+        "I have no internet connection",
+        "WiFi is down",
+        "Cannot connect to internet",
+        "No network access",
+        "Internet connection problem",
+        "My wifi is not working",
+        "I can't get online",
+        "Network is down"
+      ],
+      "messages": [
+        "Let's troubleshoot your internet connection:\n\n1. Check if your WiFi is enabled on your device\n2. Restart your router/modem (unplug for 30 seconds)\n3. Check network cables are securely connected\n4. Try connecting to a different network\n5. Run Windows Network Troubleshooter\n\nIf the issue persists, please contact IT support."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Password Reset",
+      "trainingPhrases": [
+        "I forgot my password",
+        "Need to reset password",
+        "Password reset",
+        "Cannot login",
+        "Locked out of my account",
+        "My password expired",
+        "I need to change my password",
+        "Forgot my login credentials",
+        "Account locked"
+      ],
+      "messages": [
+        "For password reset assistance:\n\n1. Visit the self-service password portal: password.company.com\n2. Click 'Forgot Password' and enter your email\n3. Check your email for reset instructions\n4. If you don't receive an email within 5 minutes, check your spam folder\n5. For immediate assistance, call IT Helpdesk at ext. 1234\n\nNote: Passwords must be at least 8 characters with uppercase, lowercase, number, and special character."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Printer Not Working",
+      "trainingPhrases": [
+        "Printer is not working",
+        "Cannot print",
+        "Printer offline",
+        "Print job stuck",
+        "Printer error",
+        "Paper jam",
+        "Printer not found",
+        "Printing blank pages",
+        "My printer won't print"
+      ],
+      "messages": [
+        "Printer troubleshooting steps:\n\n1. Check if printer is powered on and connected\n2. Verify paper is loaded correctly\n3. Check for paper jams and clear if found\n4. Restart the printer\n5. Check print queue and cancel stuck jobs\n6. Reinstall printer drivers\n7. Verify network connection (for network printers)\n8. Check ink/toner levels\n\nFor hardware issues, please submit a ticket for technician visit."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Slow Computer",
+      "trainingPhrases": [
+        "My computer is slow",
+        "Laptop running slow",
+        "System is sluggish",
+        "Computer freezing",
+        "Performance issue",
+        "Slow startup",
+        "Programs not responding",
+        "High CPU usage",
+        "Computer is lagging"
+      ],
+      "messages": [
+        "To improve your computer's performance:\n\n1. Close unused applications and browser tabs\n2. Restart your computer to clear memory\n3. Run Disk Cleanup to remove temporary files\n4. Check for Windows updates and install if available\n5. Run antivirus scan to check for malware\n6. Disable startup programs you don't need\n7. Free up disk space (keep at least 15% free)\n8. Consider upgrading RAM if consistently slow\n\nContact IT if performance issues persist after these steps."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Software Installation",
+      "trainingPhrases": [
+        "Cannot install software",
+        "Software installation failed",
+        "App not installing",
+        "Need admin rights",
+        "How to install program",
+        "Software download issue",
+        "Installation error",
+        "Need software installed"
+      ],
+      "messages": [
+        "Software installation guidance:\n\n1. Check if you have administrator permissions\n2. Download software only from official/approved sources\n3. Temporarily disable antivirus during installation (if trusted software)\n4. Ensure sufficient disk space is available\n5. Close all other applications before installing\n6. Right-click installer and select 'Run as Administrator'\n7. For company-approved software, use the Software Center\n8. Contact IT for software not in the approved list\n\nNote: Unauthorized software installation violates company policy."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Blue Screen Error",
+      "trainingPhrases": [
+        "Blue screen error",
+        "BSOD",
+        "Blue screen of death",
+        "System crash",
+        "Windows crash",
+        "Stop error",
+        "Critical error",
+        "Computer keeps crashing"
+      ],
+      "messages": [
+        "Blue Screen (BSOD) troubleshooting:\n\n1. Note the error code displayed on the blue screen\n2. Restart your computer normally\n3. Check for Windows updates and install all pending updates\n4. Update device drivers (especially graphics and network)\n5. Run Windows Memory Diagnostic tool\n6. Check hard drive for errors (chkdsk command)\n7. Uninstall recently installed software or drivers\n8. Scan for malware/viruses\n\nIf BSOD occurs repeatedly, please create a support ticket with the error code."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Email Issues",
+      "trainingPhrases": [
+        "Email not working",
+        "Outlook not syncing",
+        "Cannot send email",
+        "Email not receiving",
+        "Mailbox full",
+        "Outlook crash",
+        "Email stuck in outbox",
+        "Cannot access email"
+      ],
+      "messages": [
+        "Email troubleshooting steps:\n\n1. Check your internet connection\n2. Restart Outlook/email client\n3. Check if mailbox is full - delete or archive old emails\n4. Verify email account settings are correct\n5. Clear Outlook cache: File > Options > Advanced > Cached Exchange Mode\n6. Check junk/spam folders for missing emails\n7. Update Outlook to latest version\n8. Try accessing email via web browser\n\nFor persistent issues, contact IT with any error messages."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "VPN Connection",
+      "trainingPhrases": [
+        "VPN not connecting",
+        "Cannot connect to VPN",
+        "VPN error",
+        "VPN disconnected",
+        "Remote access not working",
+        "VPN authentication failed",
+        "VPN client error",
+        "Need to connect to VPN"
+      ],
+      "messages": [
+        "VPN connection troubleshooting:\n\n1. Verify your internet connection is working\n2. Check VPN client is up to date\n3. Restart the VPN client application\n4. Verify your username and password are correct\n5. Try connecting to a different VPN server\n6. Check if firewall is blocking VPN connection\n7. Restart your computer\n8. Clear VPN cache and reconfigure connection\n\nIf you cannot connect after these steps, contact IT for remote access assistance."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Keyboard Mouse Issue",
+      "trainingPhrases": [
+        "Keyboard not working",
+        "Mouse not working",
+        "Keyboard issue",
+        "Mouse issue",
+        "Keyboard typing wrong",
+        "Mouse cursor frozen",
+        "Wireless keyboard not working",
+        "Wireless mouse not working"
+      ],
+      "messages": [
+        "Keyboard and mouse troubleshooting:\n\n1. Check USB connections - try different USB ports\n2. For wireless devices, check battery levels\n3. Restart your computer\n4. Check if Num Lock or Caps Lock is affecting input\n5. Update keyboard/mouse drivers in Device Manager\n6. Try the device on another computer to isolate the issue\n7. Check for physical damage or debris\n8. For Bluetooth devices, re-pair with your computer\n\nIf hardware is faulty, IT can arrange a replacement."
+      ],
+      "parameters": []
+    },
+    {
+      "displayName": "Create Support Ticket",
+      "trainingPhrases": [
+        "Create ticket",
+        "Submit ticket",
+        "Open support ticket",
+        "Need human support",
+        "Talk to agent",
+        "Escalate issue",
+        "Contact IT support",
+        "Speak to technician"
+      ],
+      "messages": [
+        "I'll help you create a support ticket. Please click the ticket icon in the header or provide your details and I'll submit the ticket for you."
+      ],
+      "parameters": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "required": true,
+          "dataType": "@sys.person"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "required": true,
+          "dataType": "@sys.email"
+        }
+      ]
+    },
+    {
+      "displayName": "Default Fallback Intent",
+      "trainingPhrases": [],
+      "messages": [
+        "I'm not sure I understand your issue. Could you please describe it differently? Try using keywords like 'internet', 'password', 'printer', 'slow', etc.",
+        "I couldn't find a solution for that specific problem. Can you provide more details about what's happening?",
+        "That issue might need human assistance. Type 'create ticket' to submit a support request to our IT team."
+      ],
+      "parameters": [],
+      "isFallback": true
+    }
+  ]
+}

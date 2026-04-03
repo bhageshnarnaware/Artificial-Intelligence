@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI IT Support Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>IT Support Bot</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Quick Actions</h3>
+                    <button class="nav-btn active" onclick="startNewChat()">
+                        <i class="fas fa-plus"></i>
+                        <span>New Chat</span>
+                    </button>
+                    <button class="nav-btn" onclick="showTicketForm()">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Create Ticket</span>
+                    </button>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Common Issues</h3>
+                    <button class="nav-btn" onclick="sendQuickMessage('Internet not working')">
+                        <i class="fas fa-wifi"></i>
+                        <span>Internet Issues</span>
+                    </button>
+                    <button class="nav-btn" onclick="sendQuickMessage('Password reset')">
+                        <i class="fas fa-key"></i>
+                        <span>Password Reset</span>
+                    </button>
+                    <button class="nav-btn" onclick="sendQuickMessage('Printer not working')">
+                        <i class="fas fa-print"></i>
+                        <span>Printer Problems</span>
+                    </button>
+                    <button class="nav-btn" onclick="sendQuickMessage('VPN connection issue')">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>VPN Issues</span>
+                    </button>
+                    <button class="nav-btn" onclick="sendQuickMessage('Computer running slow')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Slow Computer</span>
+                    </button>
+                    <button class="nav-btn" onclick="sendQuickMessage('Email not syncing')">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Issues</span>
+                    </button>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Settings</h3>
+                    <button class="nav-btn" onclick="toggleTheme()">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                        <span id="themeText">Dark Mode</span>
+                    </button>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="status-dot online"></span>
+                    <span>Bot Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-left">
+                    <button class="menu-btn" id="menuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="header-info">
+                        <h1>IT Support Assistant</h1>
+                        <p class="status">Always here to help</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" onclick="showTicketForm()" title="Create Support Ticket">
+                        <i class="fas fa-ticket-alt"></i>
+                    </button>
+                    <button class="icon-btn" onclick="clearChat()" title="Clear Chat">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <!-- Messages Area -->
+                <div class="messages-area" id="messagesArea">
+                    <!-- Welcome Message -->
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="message-author">IT Support Bot</span>
+                                <span class="message-time" id="welcomeTime"></span>
+                            </div>
+                            <div class="message-body">
+                                <p>Hello! 👋 I'm your IT Support Assistant.</p>
+                                <p>I can help you troubleshoot common IT issues including:</p>
+                                <ul>
+                                    <li>🌐 Internet & WiFi problems</li>
+                                    <li>🔑 Password resets</li>
+                                    <li>🖨️ Printer issues</li>
+                                    <li>💻 Computer performance</li>
+                                    <li>📧 Email problems</li>
+                                    <li>🔒 VPN connections</li>
+                                </ul>
+                                <p>Just describe your issue, and I'll guide you through the solution!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <!-- Quick Replies -->
+                <div class="quick-replies" id="quickReplies">
+                    <button class="quick-reply" onclick="sendQuickMessage('My internet is not working')">
+                        Internet Issue
+                    </button>
+                    <button class="quick-reply" onclick="sendQuickMessage('I forgot my password')">
+                        Password Reset
+                    </button>
+                    <button class="quick-reply" onclick="sendQuickMessage('Printer is offline')">
+                        Printer Problem
+                    </button>
+                    <button class="quick-reply" onclick="sendQuickMessage('Computer is slow')">
+                        Slow PC
+                    </button>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <div class="input-container">
+                        <textarea 
+                            id="messageInput" 
+                            placeholder="Type your IT issue here..." 
+                            rows="1"
+                            maxlength="500"
+                        ></textarea>
+                        <div class="input-actions">
+                            <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-footer">
+                        <span class="char-count" id="charCount">0/500</span>
+                        <span class="hint">Press Enter to send, Shift+Enter for new line</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Ticket Modal -->
+    <div class="modal" id="ticketModal">
+        <div class="modal-overlay" onclick="closeTicketModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-ticket-alt"></i> Create Support Ticket</h2>
+                <button class="close-btn" onclick="closeTicketModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="ticketForm">
+                    <div class="form-group">
+                        <label for="ticketName">Full Name *</label>
+                        <input type="text" id="ticketName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketEmail">Email Address *</label>
+                        <input type="email" id="ticketEmail" placeholder="your.email@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketCategory">Issue Category</label>
+                        <select id="ticketCategory">
+                            <option value="General">General</option>
+                            <option value="Internet Connectivity">Internet Connectivity</option>
+                            <option value="WiFi Connection">WiFi Connection</option>
+                            <option value="Password Reset">Password Reset</option>
+                            <option value="Printer Issues">Printer Issues</option>
+                            <option value="Slow Computer">Slow Computer</option>
+                            <option value="Software Installation">Software Installation</option>
+                            <option value="Blue Screen Error">Blue Screen Error</option>
+                            <option value="Email Issues">Email Issues</option>
+                            <option value="VPN Connection">VPN Connection</option>
+                            <option value="Virus/Malware">Virus/Malware</option>
+                            <option value="Hardware Issue">Hardware Issue</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketPriority">Priority</label>
+                        <select id="ticketPriority">
+                            <option value="Low">Low - Minor inconvenience</option>
+                            <option value="Medium" selected>Medium - Affects work but has workaround</option>
+                            <option value="High">High - Significantly impacts work</option>
+                            <option value="Critical">Critical - Cannot work at all</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketDescription">Issue Description *</label>
+                        <textarea 
+                            id="ticketDescription" 
+                            rows="5" 
+                            placeholder="Please describe your issue in detail. Include any error messages and steps you've already tried."
+                            required
+                        ></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeTicketModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitTicket()">
+                    <i class="fas fa-paper-plane"></i> Submit Ticket
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Operation successful</span>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
