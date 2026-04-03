@@ -1,0 +1,1 @@
+A simple looping hero animation for a SaaS website homepage that shows team members collaborating on shared tasks
